@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Homework_10._06._2024_OverloadingOperations
 {
@@ -88,41 +89,39 @@ namespace Homework_10._06._2024_OverloadingOperations
             return phoneNumber;
         }
 
-        public void Print()
+        public override string ToString()
         {
-            Console.WriteLine("\tStudent Info: \n");
-            Console.WriteLine("Name: \t\t" + name);
-            Console.WriteLine("Last name: \t" + lastName);
-            Console.WriteLine("Patronymic: \t" + patronymic);
-            Console.WriteLine("Date of birth: \t" + dateOfBirth);
-            Console.WriteLine("Home adres: \t" + homeAdres);
-            Console.WriteLine("Phone number: \t" + phoneNumber);
-            Console.Write("Tests: \t\t");
+            string? strings = "\tStudent Info: \n\n";
+            strings += "Name: \t\t" + name + "\n";
+            strings += "Last name: \t" + lastName + "\n";
+            strings += "Patronymic: \t" + patronymic + "\n";
+            strings += "Date of birth: \t" + dateOfBirth + "\n";
+            strings += "Home adres: \t" + homeAdres + "\n";
+            strings += "Phone number: \t" + phoneNumber + "\n";
+            strings += "Tests: \t\t";
+
             foreach (var test in tests)
             {
-                Console.Write(test + " ");
+                strings += test + " ";
             }
-            Console.Write("Average: " + tests.Average());
-            Console.WriteLine();
+            strings += "Average: " + tests.Average() + "\n";
 
-            Console.Write("Course works: \t");
+            strings += "Course works: \t";
             foreach (var courseWork in courseWorks)
             {
-                Console.Write(courseWork + " ");
+                strings += courseWork + " ";
             }
-            Console.Write("Average: " + courseWorks.Average());
-            Console.WriteLine();
+            strings += "Average: " + courseWorks.Average() + "\n";
 
-            Console.Write("Exams: \t\t");
+            strings += "Exams: \t\t";
             foreach (var exam in exams)
             {
-                Console.Write(exam + " ");
+                strings += exam + " ";
             }
-            Console.Write("Average: " + exams.Average());
-            Console.WriteLine();
+            strings += "Average: " + exams.Average() + "\n";
+            strings += "Total Average:  " + AverageRatings() + "\n";
 
-            Console.Write("Total Average: " + AverageRatings());
-            Console.WriteLine();
+            return strings;
         }
 
         public void AddTestsRatings(int rating)

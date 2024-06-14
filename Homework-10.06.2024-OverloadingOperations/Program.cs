@@ -9,7 +9,7 @@
             student.AddTestsRatings(10);
             student.AddCourseWorksRatings(12);
             student.AddExamsRatings(12);
-
+            Console.WriteLine(student);
             Student student1 = new("Evgeniya", "Sadova");
             student1.AddTestsRatings(12);
             student1.AddCourseWorksRatings(12);
@@ -62,26 +62,20 @@
             group.AddStudent(student8);
             group.AddStudent(student);
 
-            group.Print();
-            Console.WriteLine();
+            Console.WriteLine(group);
 
             group.RemoveMostUnderachieverStudent();
-
-            group.Print();
-            Console.WriteLine();
+            Console.WriteLine(group);
 
             Group group1 = new("PV415", "CyberSecurity");
             group.StudentTransfer(student, group1);
 
-            group.Print();
-            Console.WriteLine();
+            Console.WriteLine(group);
 
-            group1.Print();
-            Console.WriteLine();
+            Console.WriteLine(group1);
 
             group1.EditingGroupData("ПВ415", "Кiбербезпека", 1);
-            group1.Print();
-            Console.WriteLine();
+            Console.WriteLine(group1);
 
             //////////////////////////            OVERLOAD            //////////////////////////////////////////////
             

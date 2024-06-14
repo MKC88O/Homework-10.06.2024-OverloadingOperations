@@ -65,17 +65,19 @@ namespace Homework_10._06._2024_OverloadingOperations
         }
 
 
-        public void Print()
+        public override string ToString()
         {
-            Console.WriteLine("\tGROUP:\n");
-            Console.WriteLine(nameOfGroup + "\n" + specializationOfGroup);
-            Console.WriteLine();
-            Console.WriteLine("№" + "  Name:" + "\tLastname:\n");
+            string? strings = "\tGROUP:\n\n";
+            strings += nameOfGroup + "\n" + specializationOfGroup + "\n";
+            strings += "№" + "  Name:" + "\tLastname:\n";
+
             for (int i = 0; i < students.Count; i++)
             {
                 var student = students[i];
-                Console.WriteLine(i + 1 + "  " + student.GetName() + " \t" + student.GetLastName());
+                strings += i + 1 + "  " + student.GetName() + " \t" + student.GetLastName() + "\n";
             }
+
+            return strings;
         }
 
         public void StudentTransfer(Student student, Group newGroup)
